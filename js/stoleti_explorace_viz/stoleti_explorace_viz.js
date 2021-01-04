@@ -90,31 +90,9 @@ export const initViz = (svgSelector, data) => {
 
   lines.createLinesGroup(viz);
 
-  // const totalCategory = dataMzStd.find(
-  //   (category) => category.skupina === "Celkem"
-  // );
-
-  // lines.addCategoryLine({
-  //   svg,
-  //   categoryName: "Celkem",
-  //   d: lineTotal(totalCategory.data),
-  //   style: "active",
-  //   activeColor: colors.categoryColorsActive["Celkem"],
-  // });
-
   // Line labels
 
   lines.createLineLabelsGroup(viz);
-
-  // lines.addCategoryLineLabel({
-  //   svg,
-  //   categoryName: "Celkem",
-  //   position: {
-  //     x: x(lines.categoryLineLabelPositions["Celkem"].x),
-  //     y: yTotal(lines.categoryLineLabelPositions["Celkem"].y),
-  //     textAnchor: lines.categoryLineLabelPositions["Celkem"].textAnchor,
-  //   },
-  // });
 
   // Tooltip
 
