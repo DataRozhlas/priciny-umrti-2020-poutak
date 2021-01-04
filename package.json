@@ -1,11 +1,12 @@
 {
-  "name": "samizdat-snodefall",
+  "name": "priciny-umrti-2020-poutak",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "watch": "node builder.js watch",
-    "build": "node builder.js build"
+    "build": "node builder.js build",
+    "serve": "python -m http.server --bind 0.0.0.0 3000"
   },
   "repository": {
     "type": "git",
@@ -18,13 +19,17 @@
   },
   "homepage": "https://github.com/DataRozhlas/snodefall-builder#readme",
   "dependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
-    "clean-css": "^4.2.1",
-    "js-yaml": "^3.13.1",
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "@popperjs/core": "^2.6.0",
+    "babel-loader": "^8.2.2",
+    "clean-css": "^4.2.3",
+    "core-js": "^3.8.2",
+    "d3": "^6.3.1",
+    "js-yaml": "^3.14.1",
     "marked": "^0.7.0",
-    "webpack": "^4.41.0"
+    "sass": "^1.32.0",
+    "webpack": "^4.44.2"
   }
 }
