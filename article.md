@@ -10,5 +10,7 @@ options: [noheader] #wide, noheader (, nopic)
 Pozor na náhodné utopení!
 
 <wide>
-  <svg id="priciny-umrti-dlouha-rada"></svg>
+  <div class="stoleti-explorace-container">
+    <svg class="priciny-umrti-pribehy-viz stoleti-explorace-viz"></svg>
+  </div>
 </wide>

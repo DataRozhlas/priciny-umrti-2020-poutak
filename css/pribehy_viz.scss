@@ -1,0 +1,491 @@
+.priciny-umrti-pribehy-viz {
+  .g-x-axis-label text {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 12px;
+    fill: #000000;
+  }
+
+  .g-x-axis-annotations text {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    fill: #888888;
+  }
+
+  .g-x-axis-annotations .annotation-band {
+    fill: #f5f5f5;
+  }
+
+  .g-x-axis-annotations .annotation-line {
+    stroke: #cccccc;
+  }
+
+  .g-line-labels text {
+    font-family: 'Fira Sans', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .g-x-axis {
+    color: black;
+
+    .tick {
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+  
+      line {
+        stroke-width: .5px;
+      }
+    }
+  }
+
+  .g-y-axis {
+    color: black;
+    
+    .tick {
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+  
+      line {
+        stroke-width: .5px;
+      }
+    }
+  }
+
+  .g-tooltip-triggers {
+    circle {
+      fill: currentColor;
+      stroke: transparent;
+      // stroke-width: 10px;
+
+      // &.mouseover {
+      //   stroke-width: 8.5px;
+      // }
+    }
+
+    .style-context circle {
+      fill: transparent;
+    }
+  }
+
+  @media (max-width: 767.9px) {
+    .g-x-axis-annotations text,
+    .g-line-labels text {
+      font-size: 11px;
+    }
+
+    .g-x-axis-label text {
+      font-size: 10px;
+    }
+  }
+}
+
+.priciny-umrti-pribehy-viz-legend {
+  &.legend-on-side {
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    width: 230px;
+    border: 1px solid #E6E6E6;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+
+    opacity: 0;
+    transition: opacity 700ms ease;
+
+    &.stoleti-explorace-viz-legend {
+      top: 15px;
+    }
+
+    &.legend-show {
+      opacity: 1;
+    }
+  }
+
+  &.legend-dropdown {
+    opacity: 0;
+    transition: opacity 700ms ease;
+
+    &.legend-show {
+      opacity: 1;
+    }
+
+    .legend-dropdown-button {
+      box-sizing: border-box;
+      display: flex;
+      position: absolute;
+      top: 3px;
+      right: 0px;
+      width: calc(100% - 100px);
+      height: 43px;
+      border: 1px solid #DBDBDB;
+      padding: 3px 30px 3px 6px;
+      margin: 0;
+      background: none;
+      text-align: left;
+      flex-direction: column;
+      justify-content: center;
+
+      font-size: 10px;
+      line-height: 1.2;
+      font-family: 'Fira Sans', sans-serif;
+      font-weight: 400;
+      color: black;
+
+      &:after {
+        content: '▾';
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 30px;
+        font-size: 14px;
+        line-height: 1;
+        color: #737373;
+        font-family: sans-serif;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .legend-dropdown-button-count {
+        color: #686868;
+      }
+
+      .legend-dropdown-button-categories {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        overflow: hidden;
+
+        .legend-dropdown-button-category {
+          position: relative;
+          margin-left: 8px;
+          margin-right: 5px;
+
+          .legend-dropdown-button-category-color {
+            display: block;
+            position: absolute;
+            top: 3px;
+            left: -8px;
+            width: 5px;
+            height: 5px;
+          }
+        }
+      }
+    }
+
+    .legend-dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 0;
+      bottom: 20px;      
+      width: 230px;
+      background: white;
+      border: 1px solid #dbdbdb;
+
+      .legend-scroll-container {
+        height: 100%;
+      }
+    }
+
+    &.stoleti-explorace-viz-legend {
+      .legend-dropdown-button {
+        top: 0;
+      }
+
+      .legend-dropdown-menu {
+        top: 42px;
+      }
+    }
+
+    &.open {
+      .legend-dropdown-button::after {
+        content: '▴';
+      }
+
+      .legend-dropdown-menu {
+        display: block;
+      }
+    }
+  }
+
+  .legend-scroll-container {
+    overflow-y: auto;
+    padding: 15px;
+  
+    .group-title {
+      font-family: 'Fira Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0;
+      color: black;
+
+      margin: 14px 0 5px 0;
+  
+      &.group-title-first {
+        margin-top: 0;
+      }
+    }
+  
+    .group-actions {
+      display: flex;
+      flex-direction: row;
+      margin: 0 0 8px 0;
+  
+      button {
+        display: none;
+        margin: 0 10px 0 0;
+        padding: 0;
+        border: none;
+        background: none;
+  
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1;
+        color: #777777;
+  
+        cursor: pointer;
+  
+        &.group-action-show {
+          display: block;
+        }
+  
+        &:hover, &:active {
+          text-decoration: underline;
+        }
+      }
+    }
+  
+    .legend-item {
+      display: block;
+      padding-bottom: 7px;
+      flex-direction: row;
+      position: relative;
+      cursor: pointer;
+  
+      input {
+        position: absolute;
+        opacity: 0;
+      }
+  
+      .custom-checkbox {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 14px;
+        height: 14px;
+        background-color: white;
+        border: 1px solid #aaa;
+        border-radius: 2px;
+  
+        // Check mark in CSS only
+        &:after {
+          content: "";
+          position: absolute;
+          display: none;
+          left: 4px;
+          top: 1px;
+          width: 5px;
+          height: 8px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          -webkit-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+        }
+      }
+  
+      .label-text {
+        display: block;
+        font-family: 'Fira Sans', sans-serif;
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 1.2;
+        margin: 0 0 0 20px;
+        padding: 0;
+        color: #777777;
+      }
+  
+      &:hover .label-text {
+        text-decoration: underline;
+      }
+  
+      &:hover input ~ .custom-checkbox {
+        border-color: #333;
+      }
+  
+      input:checked ~ .custom-checkbox {
+        // Takes color from color style prop, which is set in JS
+        background-color: currentcolor;
+        border-color: currentcolor;
+      }
+  
+      input:checked ~ .custom-checkbox:after {
+        display: block;
+      }
+  
+      input:checked ~ .label-text {
+        color: #000;
+      }
+    }
+  }
+}
+
+.priciny-umrti-pribehy-viz-tooltip {
+  position: absolute;
+  width: 240px;
+  background-color: rgba(255,255,255,0.96);
+  border: 1px solid #D5D5D5;
+  box-shadow: 0 2px 4px 0 rgba(169,169,169,0.50);  
+  font-family: 'Fira Sans', sans-serif;
+  color: black;
+
+  .tooltip-arrow,
+  .tooltip-arrow::before {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    z-index: -1;
+  }
+
+  .tooltip-arrow::before {
+    content: '';
+    transform: rotate(45deg);
+    background: rgba(255,255,255,0.96);
+    border: 0px solid #D5D5D5;
+  }
+  
+  &[data-popper-placement^='left'] > .tooltip-arrow {
+    right: -6px;
+
+    &:before {
+      border-right-width: 1px;
+      border-top-width: 1px;
+    }
+  }
+  
+  &[data-popper-placement^='right'] > .tooltip-arrow {
+    left: -6px;
+
+    &:before {
+      border-left-width: 1px;
+      border-bottom-width: 1px;
+    }
+  }
+
+  .tooltip-title {
+    margin: 10px 10px 0 10px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.25;
+
+    .tooltip-title-category {
+      font-weight: 500;
+    }
+
+    .tooltip-title-year {
+      font-weight: 500;
+    }
+  }
+
+  .tooltip-numbers {
+    margin: 15px 10px 0 10px;
+    display: flex;
+    flex-direction: row;
+
+    .tooltip-numbers-abs {
+      flex: 0 0 65px;
+    }
+
+    .tooltip-numbers-std {
+      flex: 1 0 0px;
+    }
+
+    .tooltip-numbers-abs-value,
+    .tooltip-numbers-std-value {
+      font-size: 14px;
+      line-height: 1.25;
+      font-weight: 500;
+    }
+
+    .tooltip-numbers-desc {
+      margin-top: 2px;
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 300;
+    }
+  }
+
+  .tooltip-diagnoses {
+    margin: 10px 0;
+    border-top: 1px solid #D5D5D5;
+    padding: 10px 10px 0 10px;
+    
+    .tooltip-diagnoses-header {
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 500;
+    }
+
+    ol.tooltip-diagnoses-list {
+      margin: 0;
+      padding: 0;
+
+      font-size: 12px;
+      line-height: 1.25;
+      font-weight: 400;
+
+      li {
+        margin: 8px 0 0 0;
+        padding: 0;
+
+        &:before {
+          content: none;
+        }
+
+        .tooltip-diagnosis-abs-value {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 767.9px) {
+    width: 180px;
+
+    .tooltip-title {
+      font-size: 12px;
+    }
+
+    .tooltip-numbers {
+      margin-top: 9px;
+
+      .tooltip-numbers-abs-value,
+      .tooltip-numbers-std-value {
+        font-size: 12px;
+      }
+  
+      .tooltip-numbers-desc {
+        margin-top: 1px;
+        font-size: 11px;
+      }
+    }
+
+    .tooltip-diagnoses {
+      .tooltip-diagnoses-header {
+        font-size: 11px;
+      }
+
+      ol.tooltip-diagnoses-list {
+        font-size: 11px;
+      }
+    }
+  }
+}
